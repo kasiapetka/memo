@@ -1,0 +1,17 @@
+.Cards {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  &__small {
+    grid-template: repeat(3, 33%) / repeat(4, 25%);
+  }
+
+  &__medium {
+    grid-template: repeat(5, 20%) / repeat(4, 25%);
+  }
+
+  &__large {
+    grid-template: repeat(6, 17%) / repeat(6, 16.8%);
+  }
+}

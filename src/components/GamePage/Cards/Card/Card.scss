@@ -1,0 +1,43 @@
+@import "../../../../scss/typography";
+
+.card {
+  width: 87%;
+  height: 75%;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  position: relative;
+  transition: transform 0.3s;
+  border: 2px solid black;
+  cursor: pointer;
+
+  &__view {
+    position: absolute;
+    border-radius: 13px;
+    margin: 3px;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+    backface-visibility: hidden;
+
+    &--back {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: rotateY(180deg);
+      img {
+        width: 48px;
+
+        @media (min-width: 768px) {
+          width: 75px;
+        }
+      }
+    }
+
+    &--front {
+      background-color: white;
+    }
+  }
+
+  &.flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+  }
+}

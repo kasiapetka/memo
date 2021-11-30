@@ -1,0 +1,29 @@
+// Fonts
+
+$font-family: "Roboto", sans-serif;
+$font-size: 14px;
+
+$h1-size: 32px;
+$h2-size: 28px;
+$h3-size: 24px;
+$h4-size: 21px;
+$h5-size: 18px;
+
+// Colors
+
+$blue: #5ac3e6;
+$light-blue: #a2d8eb;
+$darker-blue: #4697b3;
+$dark-blue: #285666;
+
+// Buttons
+
+@import "./buttons";
+
+// Inputs
+
+@import "./inputs";
+
+// Mixins
+
+@import "./mixins";

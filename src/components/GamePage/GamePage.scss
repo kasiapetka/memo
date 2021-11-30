@@ -1,0 +1,12 @@
+@import "../../scss/typography";
+
+.Game {
+  width: 80vw;
+  height: 80vh;
+
+  &__status {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

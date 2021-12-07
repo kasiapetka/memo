@@ -71,11 +71,11 @@ const LoginPage = () => {
 
                 <div className="LoginPage__form--submit">
                     <button type="submit" >
-                        Login
+                        Register
                     </button>
                 </div>
                 <div className="LoginPage__form--switch">
-                    You dont have an account? Sign in here!
+                    You already have an account? Sign in here!
                 </div>
             </form>
         </div>

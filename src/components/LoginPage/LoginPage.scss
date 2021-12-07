@@ -1,0 +1,33 @@
+.LoginPage {
+  &__h1 {
+    margin-bottom: 2em;
+  }
+
+  &__form {
+    text-align: center;
+    &--submit {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--inputs {
+      display: flex;
+
+      flex-direction: column;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 15em;
+      border: 1px solid rgb(156, 156, 156);
+      box-shadow: 0 0 3px 3px rgb(182, 182, 182);
+    }
+  }
+
+  &__difficulty {
+    h5 {
+      margin: 3rem 0 1rem;
+    }
+  }
+}

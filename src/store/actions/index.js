@@ -7,3 +7,7 @@ export { setTime } from "./game";
 export { resetGame } from "./game";
 
 export { addScoreToScoreboard } from "./scoreboard";
+
+export { login } from "./auth";
+export { register } from "./auth";
+export { fetchUser } from "./auth";

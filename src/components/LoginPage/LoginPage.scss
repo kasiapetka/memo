@@ -18,8 +18,18 @@
       flex-direction: column;
     }
 
+    &--switch{
+      padding-top: 1em;
+
+      span{
+        cursor: pointer;
+        text-decoration: underline;
+        color: blue;
+      }
+    }
+
     @media (min-width: 1024px) {
-      padding: 15em;
+      padding: 8em;
       border: 1px solid rgb(156, 156, 156);
       box-shadow: 0 0 3px 3px rgb(182, 182, 182);
     }

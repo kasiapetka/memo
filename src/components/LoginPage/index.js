@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 
 const LoginPage = ({ login, register, registered, authError, loggedIn}) => {
     const MIN_LENGTH = 3;
-    const MAX_LENGTH = 15;
+    const MAX_LENGTH = 45;
     const [inputs, setInputs] = useState({  email: "", password: "" });
     const [error, setError] = useState(null);
 

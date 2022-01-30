@@ -59,7 +59,7 @@ const Scoreboard = ({
 
   const handlePlayAgain = () => {
     resetGame();
-    history.push("/");
+    history.push("/home");
   };
 
   return (
@@ -84,7 +84,7 @@ const Scoreboard = ({
         {renderList()}
       </div>
       <div className="Scoreboard__footer">
-        <button onClick={handlePlayAgain}>Play again!</button>
+        <button onClick={handlePlayAgain}>Play memory!</button>
       </div>
     </div>
   );

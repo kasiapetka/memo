@@ -4,11 +4,20 @@ import Timer from "./Timer";
 import * as actions from "../../store/actions";
 import Cards from "./Cards";
 import "./GamePage.scss";
+import { useHistory } from "react-router-dom";
 
-const GamePage = ({ attempts, setGameStatus, resetGame }) => {
+
+const GamePage = ({ attempts, setGameStatus, resetGame,username }) => {
   const [startTimer, setStartTimer] = useState(false);
   const reference = useRef();
+  const history = useHistory();
 
+  useEffect(() => {
+    if (!username) {
+      history.push("/home");
+    }
+  }, []);
+  
   useEffect(() => {
     return resetGame();
   }, []);
@@ -38,6 +47,7 @@ const GamePage = ({ attempts, setGameStatus, resetGame }) => {
 function mapStateToProps(state) {
   return {
     attempts: state.game.attempts,
+    username: state.game.username
   };
 }
 

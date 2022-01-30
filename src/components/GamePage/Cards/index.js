@@ -25,7 +25,7 @@ const Cards = ({
   const [isDisabled, setIsDisabled] = useState(false);
 
   useEffect(() => {
-    if (!username || gameStatus === 2) history.push("/");
+   // if (!username || gameStatus === 2) history.push("/");
     switch (difficulty) {
       case 1:
         return setCardsNumber(12);

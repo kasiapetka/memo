@@ -34,8 +34,7 @@ const Scoreboard = ({
       time,
       score,
     };
-
-    addToScoreboard(result);
+    if(score) addToScoreboard(result);
   };
 
   const renderList = () => {

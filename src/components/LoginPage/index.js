@@ -41,7 +41,6 @@ const LoginPage = ({ login, register, registered, authError, loggedIn}) => {
                 return;
             }
             if (key === 'email') {
-                console.log('in')
                 let regEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
                 if (!regEmail.test(value)) {
                     setError(`Your ${key} is invalid! Please type valid email`);
@@ -54,7 +53,6 @@ const LoginPage = ({ login, register, registered, authError, loggedIn}) => {
     };
 
     useEffect(() => {
-        console.log(loggedIn, "     ", authError,"   ",registered)
         if (loggedIn) history.push("/home");
         if (registered) {
             window.alert("Register successful. Please log in now.");

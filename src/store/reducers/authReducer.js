@@ -8,7 +8,6 @@ const initialState = {
 };
 
 const login = (state, action) => {
-    console.log(action.payload)
     if (action.payload === 200) {
         let st = { ...state, loggedIn: true };
         return st;

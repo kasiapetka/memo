@@ -4,6 +4,7 @@
   }
 
   &__board{
+      margin-top: 1em;
       padding: 0 10px 10px 10px;
       border: 0.5px dashed black;
       text-align: center;
@@ -40,7 +41,7 @@
     }
 
     @media (min-width: 1024px) {
-      padding: 8em;
+      padding: 6em;
       border: 1px solid rgb(156, 156, 156);
       box-shadow: 0 0 3px 3px rgb(182, 182, 182);
     }

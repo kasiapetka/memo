@@ -43,6 +43,7 @@ const calcScore = (state, action) => {
   else {
     scoreResult = 100 * state.difficulty - (state.attempts + state.time);
   }
+  if (scoreResult === 0) scoreResult = 1;
   return {
     ...state,
     score: scoreResult,

@@ -29,7 +29,6 @@ const LandingPage = ({ auth, fetchUser,setUsername,setDifficulty }) => {
 
   let content = <p>Loading...</p>;
   if(auth !== null && auth === false) {
-    console.log(auth)
     history.replace("/")
   }else{
     content = (

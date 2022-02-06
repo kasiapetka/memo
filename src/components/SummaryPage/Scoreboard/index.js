@@ -6,101 +6,107 @@ import celebrateImage from "../../../images/1F973_color.png";
 import "./Scoreboard.scss";
 
 const Scoreboard = ({
-  username,
-  difficulty,
-  attempts,
-  score,
-  time,
-  addToScoreboard,
-  scoreboard,
-  resetGame,
+    email,
+    difficulty,
+    attempts,
+    score,
+    time,
+    addToScoreboard,
+    scoreboard,
+    fetchScoreboard,
+    resetGame,
 }) => {
-  const history = useHistory();
-  const [bestScores, setBestScores] = useState([]);
+    const history = useHistory();
 
-  useEffect(() => {
-    handleResults();
-  }, []);
+    useEffect(() => {
+        handleResults();
+    }, []);
 
-  useEffect(() => {
-    setBestScores(scoreboard.slice(0, 5));
-  }, [scoreboard]);
+    useEffect(() => {
+        fetchScoreboard();
+    }, []);
 
-  const handleResults = () => {
-    const result = {
-      username,
-      difficulty,
-      attempts,
-      time,
-      score,
+    useEffect(() => {
+        console.log(scoreboard);
+    }, []);
+
+    const handleResults = () => {
+        const result = {
+            email,
+            difficulty,
+            attempts,
+            time,
+            score,
+        };
+        if (score) addToScoreboard(result);
     };
-    if(score) addToScoreboard(result);
-  };
 
-  const renderList = () => {
-    return bestScores.map((result, index) => {
-      return (
-        <React.Fragment key={index}>
-          <span>{index + 1}</span>
-          <span>{result.username}</span>
-          <span>
-            {result.difficulty === 3
-              ? "Master"
-              : result.difficulty === 2
-              ? "Medium"
-              : "Newbie"}
-          </span>
-          <span>{result.score}</span>
-        </React.Fragment>
-      );
-    });
-  };
+    const renderList = () => {
+        return scoreboard.map((result, index) => {
+            return (
+                <React.Fragment key={index}>
+                    <span>{index + 1}</span>
+                    <span>{result.email}</span>
+                    <span>
+                        {result.difficulty === 3
+                            ? "Master"
+                            : result.difficulty === 2
+                            ? "Medium"
+                            : "Newbie"}
+                    </span>
+                    <span>{result.score}</span>
+                </React.Fragment>
+            );
+        });
+    };
 
-  const handlePlayAgain = () => {
-    resetGame();
-    history.push("/home");
-  };
+    const handlePlayAgain = () => {
+        resetGame();
+        history.push("/home");
+    };
 
-  return (
-    <div className="Scoreboard">
-      <div className="Scoreboard__heading">
-        <h1>You won!</h1>
-        <img src={celebrateImage} alt="CelebrateImage" />
-        <h4>Scoreboard</h4>
-      </div>
-      <div
-        className="Scoreboard__body"
-        style={{
-          gridTemplate: `repeat(${scoreboard.length}, ${
-            100 / scoreboard.length
-          }%) / repeat(4, 25%)`,
-        }}
-      >
-        <span>#</span>
-        <span>Name</span>
-        <span>Difficulty</span>
-        <span>Score</span>
-        {renderList()}
-      </div>
-      <div className="Scoreboard__footer">
-        <button onClick={handlePlayAgain}>Play memory!</button>
-      </div>
-    </div>
-  );
+    return (
+        <div className="Scoreboard">
+            <div className="Scoreboard__heading">
+                <h1>You won!</h1>
+                <img src={celebrateImage} alt="CelebrateImage" />
+                <h4>Scoreboard</h4>
+            </div>
+            <div
+                className="Scoreboard__body"
+                style={{
+                    gridTemplate: `repeat(${scoreboard.length}, ${
+                        100 / scoreboard.length
+                    }%) / repeat(4, 25%)`,
+                }}
+            >
+                <span>#</span>
+                <span>Email</span>
+                <span>Difficulty</span>
+                <span>Score</span>
+                {scoreboard ? renderList() : null}
+            </div>
+            <div className="Scoreboard__footer">
+                <button onClick={handlePlayAgain}>Play memory!</button>
+            </div>
+        </div>
+    );
 };
 
 const mapStateToProps = (state) => ({
-  username: state.game.username,
-  difficulty: state.game.difficulty,
-  attempts: state.game.attempts,
-  time: state.game.time,
-  score: state.game.score,
-  scoreboard: state.scoreboard,
+    email: state.game.email,
+    difficulty: state.game.difficulty,
+    attempts: state.game.attempts,
+    time: state.game.time,
+    score: state.game.score,
+    scoreboard: state.scoreboard,
 });
 const mapDispatchToProps = (dispatch) => {
-  return {
-    addToScoreboard: (score) => dispatch(actions.addScoreToScoreboard(score)),
-    resetGame: () => dispatch(actions.resetGame()),
-  };
+    return {
+        addToScoreboard: (score) =>
+            dispatch(actions.addScoreToScoreboard(score)),
+        resetGame: () => dispatch(actions.resetGame()),
+        fetchScoreboard: () => dispatch(actions.fetchScoreboard()),
+    };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Scoreboard);

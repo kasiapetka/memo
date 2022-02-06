@@ -7,6 +7,7 @@ export const SETTIME = "SETTIME";
 export const RESETGAME = "RESETGAME";
 
 export const ADDSCORETOSCOREBOARD = "ADDSCORETOSCOREBOARD";
+export const FETCHSCOREBOARD = "FETCHSCOREBOARD";
 
 export const LOGIN = "LOGIN";
 export const REGISTER = "REGISTER";
